@@ -1,0 +1,57 @@
+﻿@model Crud_Sqlite.Models.ViewMTime
+
+@{
+    ViewData["Title"] = "James";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script defer src="https://code.jquery.com/jquery-3.7.1.js"> </script>
+    <script defer src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script defer src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
+    <script defer src="~/js/site.js"></script>
+</head>
+
+
+<h1>Index</h1>
+
+<p>
+
+</p>
+<div class="table-responsive">
+    <table class="table table-hover" id="newBetterTable">
+        <thead>
+            <tr class="text-nowrap">
+                <th>
+                    Start Time
+                </th>
+                <th>
+                    End Time
+                </th>
+                <th>
+                    INV_Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var timeRange in Model.timerange)
+            {
+                <tr>
+                    <td>
+                        @timeRange.Item2
+                    </td>
+                    <td>
+                        @timeRange.Item3
+                    </td>
+                    <td>
+                        @timeRange.Item1.ToString("yyyy-MM-dd")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Generate";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Generate CSV</h1><br/>
+    <a asp-controller="Fuels" asp-action="Index" class="btn btn-primary" style="width:150px">Generate CSV</a>
+</div>
+
+@Html.Raw(TempData["msg"])

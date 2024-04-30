@@ -1,0 +1,79 @@
+﻿@model RowsCount
+
+@{
+    ViewData["Title"] = "Generated";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Generate CSV</h1>
+
+    <br />
+    Fuel records: <div class="text-primary">@Model.fuels</div>    @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br />*@
+
+    <br />
+    Lube records: <div class="text-danger">@Model.Lubes</div>     @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br />*@
+
+    <br />
+    Safedrop records: <div class="text-success">@Model.safedrops</div>     @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br />*@
+    <br />
+
+    @* <button class="btn btn-primary" onclick="timer()"> swal Generate </button> *@
+    <br />
+
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="width:150px">Close</a>
+</div>
+
+@Html.Raw(TempData["msg"])
+
+<script>
+    function exit() {
+        window.open('', '_self').close()
+    }
+
+    function generate(){
+        Swal.fire("Sample Generate");
+    }
+
+    function success() {
+        Swal.fire({
+            icon: "success",
+            title: "Generation Success!",
+            showConfirmButton: true,
+            // timer: 1500
+        });
+    }
+
+    function downloaded() {
+        Swal.fire({
+            icon: "success",
+            title: "Download Success!",
+            showConfirmButton: true,
+            // timer: 1500
+        });
+    }
+    
+    function timer() {
+        let timerInterval;
+        Swal.fire({
+            title: "Generating...",
+            html: "Please do not close the POS",
+            timer: 3000,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    }
+
+</script>

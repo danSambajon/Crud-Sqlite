@@ -1,0 +1,248 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.XTicket>
+
+@{
+    ViewData["Title"] = "XTicket";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XHqcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTicketId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCorpcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSitecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPricecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPstid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XBatch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTransaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVoidtransaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XGuestcount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSrcount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XOid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XOname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XShift)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFlag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotaltype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotaltypename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPromoindex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XRoutecolumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStampfi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStamplt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XOdometer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPropertytag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDiscountmethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFld001)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XRsn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XRtn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XLastUpdate)
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XHqcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTicketId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCorpcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSitecode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPricecode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPstid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XBatch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTransaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVoidtransaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XGuestcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSrcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XOid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XOname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XShift)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFlag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotaltype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotaltypename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPromoindex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XRoutecolumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStampfi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStamplt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XOdometer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPropertytag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDiscountmethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFld001)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XRsn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XRtn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XLastUpdate)
+                </td>
+
+
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

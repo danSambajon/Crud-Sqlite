@@ -1,0 +1,51 @@
+﻿@model List<Crud_Sqlite.Models.Abnormalities>
+
+@{
+    ViewData["Title"] = "Select";
+}
+
+    <form method="post">
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Look for Offline from:</h2>
+                <hr />  
+            </div>
+            <div class="mb-3">
+            <label for="Date">Date</label>
+            <input name="Date" type="date" class="form-control" />        
+            </div>
+            <input type="hidden" id="buttonType" name="ButtonType" value="" />
+            <button type="submit" class="btn btn-primary" onclick="setButtonType(0)" style="width:150px">Show Records</button>
+            <button type="submit" class="btn btn-primary" onclick="setButtonType(1)" style="width:150px">Export</button>
+            <a asp-controller="Abnormality" asp-action="Abnormality" class="btn btn-secondary" style="width:150px">
+                Back to Home
+            </a>
+        </div>
+    </form>
+
+<html>
+
+    <script type="text/javascript">
+
+        function tableToCSV() {
+            let csv_data = [];
+            let rows = document.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                let cols = rows[i].querySelectorAll('td,th:not(.dt-column-title):not(.dt-column-order)');
+                let csvrow = [];
+                for (let j = 0; j < cols.length; j++) {
+                    csvrow.push(cols[j].innerText);
+                }
+                csv_data.push(csvrow.join(","));
+            }
+            csv_data = csv_data.join('\n');
+            downloadCSVFile(csv_data);
+        }
+
+        function setButtonType(buttonValue) {
+            document.getElementById("buttonType").value = buttonValue;
+        }
+
+
+    </script>
+</html>

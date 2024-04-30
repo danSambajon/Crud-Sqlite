@@ -1,0 +1,333 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.XFunction>
+
+@{
+    ViewData["Title"] = "XFunction";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTaskcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTasktype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XApiflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFormat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAccountcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XForex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCurrsym)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFindex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XByte1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XByte2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XWord1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XWord2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDword1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDword2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XReal1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XReal2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmount1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmount2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCkBankname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCkCheckno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFlag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTransactiondue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XChangedue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmountdue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XRoundamt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotalamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotalamountdue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XGcSerialno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCustomfield1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMaxamt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMaxqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTstamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XUsedamt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XUsedqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XGuestcount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSrcount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemcodex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XControlr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XControlno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmt1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmt2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmt3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XQty1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XQty2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XLastUpdate)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTaskcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTasktype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XApiflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFormat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAccountcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XForex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCurrsym)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFindex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XByte1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XByte2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XWord1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XWord2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDword1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDword2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XReal1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XReal2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmount1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmount2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCkBankname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCkCheckno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFlag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTransactiondue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XChangedue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmountdue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XRoundamt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotalamount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotalamountdue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XGcSerialno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCustomfield1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMaxamt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMaxqty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTstamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XUsedamt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XUsedqty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XGuestcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSrcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemcodex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XControlr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XControlno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmt1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmt2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmt3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XQty1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XQty2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XLastUpdate)
+                </td>
+
+
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

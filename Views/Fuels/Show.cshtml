@@ -1,0 +1,43 @@
+﻿@model List<Crud_Sqlite.Models.xFuelsWithPO>
+@{
+    ViewData["Title"] = "Fuel";
+}
+<html>
+    <h1>Fuels Records</h1>
+    <div style="text-align: right">
+    <div class="table-responsive">
+        <table class="table table-striped" id="newBetterTable">
+        <thead>
+            <tr class="text-nowrap">
+                @foreach (var prop in typeof(Crud_Sqlite.Models.xFuelsWithPO).GetProperties())
+                {
+                    <th>@prop.Name</th>
+                }
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                    @foreach (var prop in typeof(Crud_Sqlite.Models.xFuelsWithPO).GetProperties())
+                    {
+                        <td>@prop.GetValue(item)</td>
+                    }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <form method="post">
+            <div class="border p-3 mt-4">
+                <input type="hidden" id="buttonType" name="ButtonType" value="" />
+                <button type="submit" class="btn btn-primary" onclick="setButtonType(1)" style="width:150px">Export</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    Back to Home
+                </a>
+            </div>
+        </form>
+
+    <script type="text/javascript">
+
+    </script>
+    </div>
+</html>

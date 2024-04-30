@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.Combine>
+
+@{
+    ViewData["Title"] = "xOffline";
+}
+<h1>Index</h1>
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+
+<div class="table-responsive">
+    <table class="table table-hover" id="newBetterTable">
+        <thead>
+            <tr class="text-nowrap">
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.Id)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XAfterInvoice)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XAmount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XAfterStamp)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XBatch)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XBeforeStamp)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XBeforeInvoice)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XCashier)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XCashierCode)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XCloseTotalizer)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XItemCode)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XItemName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XNozzle)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XOpenTotalizer)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XOrigOpenTotal)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XPumpNo)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XQuantity)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XTankNo)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XTotalType)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XUnitPrice)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XBeforeStamp)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xOffline.XAfterStamp)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.xTicket.XTicketId)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayFor(model => item.xOffline.Id)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XAfterInvoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XAfterStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XBatch)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XBeforeStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XBeforeInvoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XCashier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XCashierCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XCloseTotalizer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XItemCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XNozzle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XOpenTotalizer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XOrigOpenTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XPumpNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XTankNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XTotalType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XUnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XBeforeStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xOffline.XAfterStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.xTicket.XTicketId)
+                    </td>
+
+                    @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

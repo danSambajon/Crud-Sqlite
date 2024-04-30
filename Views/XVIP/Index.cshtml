@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.XVip>
+
+@{
+    ViewData["Title"] = "XVip";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipSalute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipHseno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipMname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipBario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipLname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipTin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipApc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipRef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipPcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCode2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipMid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipTid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipPtsp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipPtsr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipPtse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipPtsa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCardlabel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCardname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XLastUpdate)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipSalute)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipStreet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipFname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipZip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipHseno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipMname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipBario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipLname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipTin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipApc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipRef)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipPcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCode2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipMid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipTid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipPtsp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipPtsr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipPtse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipPtsa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCardlabel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCardname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XLastUpdate)
+                </td>
+
+
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

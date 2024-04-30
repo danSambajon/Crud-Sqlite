@@ -1,0 +1,92 @@
+﻿@model RowsCount
+
+@{
+    ViewData["Title"] = "Generate";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Generate CSV</h1>
+
+    @* <button class="btn btn-primary" onclick="timer()"> swal Generate </button> *@
+    <br />
+    <a asp-controller="Fuels" asp-action="Index" onclick="timer()" class="btn btn-primary" style="width:150px">Generate CSV</a>
+</div>
+
+@Html.Raw(TempData["msg"])
+
+<script>
+    function generate(){
+        Swal.fire("Sample Generate");
+    }
+
+    function success() {
+        Swal.fire({
+            icon: "success",
+            title: "Generation Success!",
+            showConfirmButton: true,
+            // timer: 1500
+        });
+    }
+
+    function downloaded() {
+        Swal.fire({
+            icon: "success",
+            title: "Download Success!",
+            showConfirmButton: true,
+            // timer: 1500
+        });
+    }
+    
+    function timer() {
+        let timerInterval;
+        Swal.fire({
+            title: "Generating...",
+            html: "Please do not close the POS",
+            timer: 3000,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    }
+
+    function areyousure(){
+        Swal.fire({
+            title: "Is the POS closed?",
+            text: "it may cause error if POS is open",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+    }
+
+    function noJournal() {
+        Swal.fire({
+            icon: "error",
+            title: "No database found!",
+            text: "it seems that journal.sqlite is missing"
+        });
+    }
+
+</script>

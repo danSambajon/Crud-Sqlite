@@ -1,0 +1,483 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.XItem>
+
+@{
+    ViewData["Title"] = "XItem";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmountPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmountDb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTaskcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTasktype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XApiflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XFormat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemkind)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XModgroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemcodex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XInvcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XItemflagx)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XYield)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDrtable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPricecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPriceflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPricedb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XBarcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSerialnumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotaltype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotaltypename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPromoindex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XRoutecolumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XBaseprice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAddon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDiscount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XCoupon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XControlflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPstid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XGuestcount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMaxcond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMincond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XNounflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSeatid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPump)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XNozzle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XUom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XSname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XClosetotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XOpentotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStampup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XStampdown)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVehicleplateno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVehicletype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipMname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipLname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipF01)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipF02)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipF03)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipF04)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XVipF05)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XPumpflag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XAmt1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XNzstamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTotalVariance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XLastUpdate)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmountPaid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmountDb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTaskcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTasktype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XApiflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XFormat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemkind)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XModgroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemcodex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XInvcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XItemflagx)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XYield)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDrtable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPricecode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPriceflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPricedb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XBarcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSerialnumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotaltype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotaltypename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPromoindex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XRoutecolumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XBaseprice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAddon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDiscount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XCoupon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XControlflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPstid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XGuestcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMaxcond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMincond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XNounflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSeatid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPump)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XNozzle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XUom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XSname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XClosetotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XOpentotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStampup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XStampdown)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVehicleplateno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVehicletype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipMname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipFname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipLname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipF01)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipF02)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipF03)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipF04)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XVipF05)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XPumpflag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XAmt1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XNzstamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTotalVariance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XLastUpdate)
+                </td>
+
+
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,181 @@
+﻿@model IEnumerable<Crud_Sqlite.Models.XCard>
+
+@{
+    ViewData["Title"] = "XCard";
+}
+
+<h1>Index</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XTid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcAmtbal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcCardname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcCardno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcCorpcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcDatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcDaylimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcExpire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcFlag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcPdatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcPsitecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcPump)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcPvalue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcPxtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcReqvalue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcSitecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcVolbal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XMcXtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XLastUpdate)
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XTid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcAmtbal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcCardname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcCardno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcCorpcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcDatetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcDaylimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcExpire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcFlag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcPdatetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcPsitecode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcPump)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcPvalue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcPxtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcReqvalue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcSeries)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcSitecode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcVersion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcVolbal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XMcXtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XLastUpdate)
+                </td>
+
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
