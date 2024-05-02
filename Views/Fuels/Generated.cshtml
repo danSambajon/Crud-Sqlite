@@ -8,13 +8,13 @@
     <h1 class="display-4">Generate CSV</h1>
 
     <br />
-    Fuel records: <div class="text-primary">@Model.fuels</div>    @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br />*@
+    Fuel records: <div class="text-primary">@Model.fuels</div>    <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br />
 
     <br />
-    Lube records: <div class="text-danger">@Model.Lubes</div>     @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br />*@
+    Lube records: <div class="text-danger">@Model.Lubes</div>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br />
 
     <br />
-    Safedrop records: <div class="text-success">@Model.safedrops</div>     @*<a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br />*@
+    Safedrop records: <div class="text-success">@Model.safedrops</div>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br />
     <br />
 
     @* <button class="btn btn-primary" onclick="timer()"> swal Generate </button> *@
