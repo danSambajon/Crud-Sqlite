@@ -42,7 +42,6 @@ namespace Crud_Sqlite.Controllers
         [HttpGet]
         public IActionResult Index(int id)
         {
-            //TempData["msg"] = "<script>alert('Don't turn off the POS while the CSVs are being generated');</script>";
             GenerateUpdate(1);
             GenerateUpdate(2);
             GenerateUpdate(3);
@@ -161,7 +160,6 @@ namespace Crud_Sqlite.Controllers
             string sqlPath = "D:\\RealSoft\\RealPOS\\realhq";
             switch (type)
             {
-                //Fuels
                 case 1:
                     query = @"
                             SELECT DISTINCT
@@ -217,12 +215,10 @@ namespace Crud_Sqlite.Controllers
                             --and xYEAR=strftime('%Y','now') and xMONTH=strftime('%m','now') and xDay=strftime('%d','now')
                             and INV_DATE between strftime('%Y','now')||'-01-01' and strftime('%Y','now')||'-'||strftime('%m','now')||'-'||strftime('%d','now')
                              ORDER BY xTANK,xOID";
-                    //sqlPath = Path.Combine(sqlPath, "\\");
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
                     destPath = "D:\\RealSoft\\RealPOS\\realhq";
                     name = "fuels";
                     break;
-                //Lubes
                 case 2:
                     query = @"
                             SELECT DISTINCT
@@ -259,7 +255,6 @@ namespace Crud_Sqlite.Controllers
                     destPath = "D:\\RealSoft\\RealPOS\\realhq";
                     name = "Lubes";
                     break;
-                //safedrops
                 case 3:
                     query = @"
                             SELECT DISTINCT
