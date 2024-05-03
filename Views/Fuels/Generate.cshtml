@@ -28,6 +28,8 @@
             timer();
         }
         else {
+            var url = '@Url.Action("StopApplication", "Fuels")';
+            window.location.href = url;
             window.parent.close();
         }
         

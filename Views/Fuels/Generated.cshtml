@@ -18,5 +18,13 @@
     <br />
     <br />
     <h2 class="display-6" style="text-align: left;">You can close the POS and the app now. Have a nice day! </h2>
+    <button class="btn btn-primary btn-lg" onclick="stop()">Close App</button>
     </div> 
     @Html.Raw(TempData["msg"])
+    <script>
+        function stop() {
+            var url = '@Url.Action("StopApplication", "Fuels")';
+            window.location.href = url;
+            window.parent.close();
+        }
+    </script>

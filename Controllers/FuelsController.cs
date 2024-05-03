@@ -23,6 +23,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace Crud_Sqlite.Controllers
 {
@@ -32,11 +35,13 @@ namespace Crud_Sqlite.Controllers
         private readonly ApplicationDbContext _dbcontext;
         private readonly ILogger<FuelsController> _logger;
         private readonly IMemoryCache _memoryCache;
-        public FuelsController(ILogger<FuelsController> logger, ApplicationDbContext context, IMemoryCache memoryCache)
+        private readonly Microsoft.Extensions.Hosting.IHostApplicationLifetime _appLifetime;
+        public FuelsController(ILogger<FuelsController> logger, ApplicationDbContext context, IMemoryCache memoryCache, Microsoft.Extensions.Hosting.IHostApplicationLifetime appLifetime)
         {
             _logger = logger;
             _dbcontext = context;
             _memoryCache = memoryCache;
+            _appLifetime = appLifetime;
         }
 
         [HttpGet]
@@ -47,6 +52,13 @@ namespace Crud_Sqlite.Controllers
             GenerateUpdate(3);
             TempData["msg"] = "<script>Swal.fire({\r\n            icon: \"success\",\r\n            title: \"Generation Success!\",\r\n            showConfirmButton: true,\r\n            // timer: 1500\r\n        });</script>";
             return RedirectToAction("Generated", "Fuels");
+        }
+
+        [HttpGet]
+        public IActionResult StopApplication()
+        {
+            _appLifetime.StopApplication();
+            return Content("");
         }
 
         public bool IsThereJournal()
