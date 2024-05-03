@@ -50,42 +50,52 @@ namespace Crud_Sqlite.Controllers
             return RedirectToAction("Generated", "Fuels");
         }
 
-        public IActionResult IsThereJournal()
+        public bool IsThereJournal()
         {
-            string SQLPath = "C:\\Crud-Sqlite\\SQLs\\journal.sqlite";
+            string SQLPath = "D:\\RealSoft\\RealPOS\\realhq\\journal.sqlite";
             if (System.IO.File.Exists(SQLPath))
             {
-                return RedirectToAction("Generate", "Fuels");
+                return true;
             }
             else
             {
-                TempData["msg"] = "<script>noJournal();</script>";
-                return RedirectToAction("Index", "Home");
+                return false;
             }
         }
 
         [HttpGet]
         public IActionResult Generate()
         {
-            RowsCount count = new RowsCount();
-            count.fuels = 0;
-            count.Lubes = 0;
-            count.safedrops = 0;
-            string fuelsPath = "C:\\Collections\\1166-fuel-2024.csv";
-            string LubesPath = "C:\\Collections\\1166-Lube-2024.csv";
-            string safedropsPath = "C:\\Collections\\1166-safedrop-2024.csv";
-            if (System.IO.File.Exists(fuelsPath)){
-                count.fuels = CountRows(1);
-            }
-            if (System.IO.File.Exists(LubesPath))
+            bool isThereJournal = IsThereJournal();
+            if (isThereJournal)
             {
-                count.Lubes = CountRows(2);
+                RowsCount count = new RowsCount();
+                count.fuels = 0;
+                count.Lubes = 0;
+                count.safedrops = 0;
+                string fuelsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
+                string LubesPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
+                string safedropsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
+                if (System.IO.File.Exists(fuelsPath))
+                {
+                    count.fuels = CountRows(1);
+                }
+                if (System.IO.File.Exists(LubesPath))
+                {
+                    count.Lubes = CountRows(2);
+                }
+                if (System.IO.File.Exists(safedropsPath))
+                {
+                    count.safedrops = CountRows(3);
+                }
+                return View("Generate", count);
             }
-            if (System.IO.File.Exists(safedropsPath))
+
+            else
             {
-                count.safedrops = CountRows(3);
+                TempData["msg"] = "<script>noJournal();</script>";
+                return View("NoDatabase");
             }
-            return View("Generate", count);
         }
 
         [HttpGet]
@@ -95,9 +105,9 @@ namespace Crud_Sqlite.Controllers
             count.fuels = 0;
             count.Lubes = 0;
             count.safedrops = 0;
-            string fuelsPath = "C:\\Crud-Sqlite\\Collections\\1166-fuel-2024.csv";
-            string LubesPath = "C:\\Crud-Sqlite\\Collections\\1166-Lube-2024.csv";
-            string safedropsPath = "C:\\Crud-Sqlite\\Collections\\1166-safedrop-2024.csv";
+            string fuelsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
+            string LubesPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
+            string safedropsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
             if (System.IO.File.Exists(fuelsPath))
             {
                 count.fuels = CountRows(1);
@@ -113,6 +123,12 @@ namespace Crud_Sqlite.Controllers
             return View("Generated", count);
         }
 
+        [HttpGet]
+        public IActionResult CloseWindow()
+        {
+            return View("Close");
+        }
+
         public void GenerateUpdate(int type)
         {
             object siteCode;
@@ -120,7 +136,7 @@ namespace Crud_Sqlite.Controllers
             string destPath = "";
             string sqliteFilePath = "";
             string name = "";
-            string sqlPath = "C:\\Crud-Sqlite\\SQLs";
+            string sqlPath = "D:\\RealSoft\\RealPOS\\realhq";
             switch (type)
             {
                 //Fuels
@@ -181,7 +197,7 @@ namespace Crud_Sqlite.Controllers
                              ORDER BY xTANK,xOID";
                     //sqlPath = Path.Combine(sqlPath, "\\");
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "C:\\Crud-Sqlite\\Collections\\Fuels";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Fuels";
                     name = "fuel";
                     break;
                 //Lubes
@@ -218,7 +234,7 @@ namespace Crud_Sqlite.Controllers
                             ORDER BY 
                                 INV_DATE";
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "C:\\Crud-Sqlite\\Collections\\Lubes";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Lubes";
                     name = "Lube";
                     break;
                 //safedrops
@@ -244,7 +260,7 @@ namespace Crud_Sqlite.Controllers
                              ORDER BY INV_DATE 
                             ";
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "C:\\Crud-Sqlite\\Collections\\Safedrops";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Safedrops";
                     name = "safedrop";
                     break;
             }
@@ -288,7 +304,7 @@ namespace Crud_Sqlite.Controllers
             }
 
             List<object> flattenedList = resultDict.Values.SelectMany(list => list).ToList();
-            string collectionFolder = @"C:\Crud-Sqlite\Collections";
+            string collectionFolder = @"D:\RealSoft\RealPOS\realhq";
             string collectionPath = System.IO.Path.Combine(collectionFolder, fileName);
             using (StreamWriter sw = new StreamWriter(collectionPath))
             {
@@ -331,7 +347,7 @@ namespace Crud_Sqlite.Controllers
             switch (type)
             {
                 case 1:
-                    filePath = "C:\\Crud-Sqlite\\Collections\\1166-fuel-2024.csv";
+                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
@@ -343,7 +359,7 @@ namespace Crud_Sqlite.Controllers
                     ViewBag.FuelsCount = rowCount-1;
                     break;
                 case 2:
-                    filePath = "C:\\Crud-Sqlite\\Collections\\1166-Lube-2024.csv";
+                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
@@ -355,7 +371,7 @@ namespace Crud_Sqlite.Controllers
                     ViewBag.LubesCount = rowCount-1;
                     break;
                 case 3:
-                    filePath = "C:\\Crud-Sqlite\\Collections\\1166-safedrop-2024.csv";
+                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
@@ -374,20 +390,30 @@ namespace Crud_Sqlite.Controllers
         {
             string filePath;
             string fileName;
-
+            string sqliteFilePath = "D:\\RealSoft\\RealPOS\\realhq\\journal.sqlite";
+            object siteCode;
+            string siteCodeQuery = $"SELECT xSITECODE FROM xTickets LIMIT 1;";
+            using (var connection = new SqliteConnection($"Data Source={sqliteFilePath};"))
+            {
+                connection.Open();
+                using (var command = new SqliteCommand(siteCodeQuery, connection))
+                {
+                    siteCode = command.ExecuteScalar();
+                }
+            }
             switch (fileNumber)
             {
                 case 1:
-                    filePath = @"C:\Crud-Sqlite\Collections\1166-fuel-2024.csv";
-                    fileName = "1166-fuel-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-fuels-2024.csv";
+                    fileName = $@"{siteCode}-fuels-2024.csv";
                     break;
                 case 2:
-                    filePath = @"C:\Crud-Sqlite\Collections\1166-Lube-2024.csv";
-                    fileName = "1166-Lube-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-Lubes-2024.csv";
+                    fileName = $@"{siteCode}-Lubes-2024.csv";
                     break;
                 case 3:
-                    filePath = @"C:\Crud-Sqlite\Collections\1166-safedrop-2024.csv";
-                    fileName = "1166-safedrop-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-safedrops-2024.csv";
+                    fileName = $@"{siteCode}-safedrops-2024.csv";
                     break;
                 default:
                     return NotFound();
@@ -397,8 +423,5 @@ namespace Crud_Sqlite.Controllers
 
             return File(fileBytes, "application/octet-stream", fileName);
         }
-
-
-
     }
 }

@@ -5,16 +5,32 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Generate CSV</h1>
+    @* <h1 class="display-4">Generate CSV</h1> *@
 
     @* <button class="btn btn-primary" onclick="timer()"> swal Generate </button> *@
     <br />
-    <a asp-controller="Fuels" asp-action="Index" onclick="timer()" class="btn btn-primary" style="width:150px">Generate CSV</a>
+     @* <a asp-controller="Fuels" asp-action="Index" onclick="timer()" class="btn btn-primary" style="width:150px">Generate CSV</a>  *@
 </div>
 
 @Html.Raw(TempData["msg"])
 
 <script>
+    //prompts the question if the POS is closed
+    Swal.fire({
+        title: "Is the POS closed?",
+        text: "it may cause error if POS is open",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, the POS is closed"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var url = '@Url.Action("Index", "Fuels")';
+            window.location.href = url;
+        }
+    });
+
     function generate(){
         Swal.fire("Sample Generate");
     }
