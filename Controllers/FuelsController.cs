@@ -124,7 +124,7 @@ namespace Crud_Sqlite.Controllers
         }
 
         [HttpGet]
-        public IActionResult CloseWindow()
+        public IActionResult Close()
         {
             return View("Close");
         }

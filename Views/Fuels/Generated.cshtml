@@ -21,11 +21,16 @@
     <br />
 
     <a id="closeTabButton" asp-controller="Fuels" asp-action="Close" class="btn btn-primary" style="width:150px">Close</a>
-</div>
+    <button onclick="closeWindow()" class="btn btn-danger">TestButton</button>
 
-@Html.Raw(TempData["msg"])
+    @Html.Raw(TempData["msg"])
 
-<script>
+    @section Scripts {
+        <script>
+            function closeWindow() {
+                window.parent.open("https://youtube.com", "_blank");
+            }
+    }
 
     function noJournal() {
         Swal.fire({
@@ -34,7 +39,7 @@
             text: "It seems that journal.sqlite is missing"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.close();
+                window.parent.close();
             }
         });
     }
@@ -94,3 +99,4 @@
     }
 
 </script>
+}

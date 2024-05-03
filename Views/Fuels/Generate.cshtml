@@ -23,11 +23,16 @@
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, the POS is closed"
+        confirmButtonText: "Yes, the POS is closed",
+        cancelButtonText: "Not yet",
+        allowOutsideClick: false,
     }).then((result) => {
         if (result.isConfirmed) {
             var url = '@Url.Action("Index", "Fuels")';
             window.location.href = url;
+        }
+        else {
+            window.parent.close();
         }
     });
 

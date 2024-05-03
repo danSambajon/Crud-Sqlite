@@ -1,23 +1,12 @@
 ﻿
 @{
-    ViewData["Title"] = "CloseTab";
+    ViewData["Title"] = "Close";
 }
 
 <body>
 
     <script>
-        function noJournal() {
-            Swal.fire({
-                icon: "error",
-                title: "No database found!",
-                text: "It seems that journal.sqlite is missing"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.close();
-                }
-            });
-        }
+        window.close();
     </script>
-    @Html.Raw(TempData["msg"])
 
 </body>

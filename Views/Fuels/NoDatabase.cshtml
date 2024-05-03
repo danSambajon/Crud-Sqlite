@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "CloseTab";
+    ViewData["Title"] = "NoDatabase";
 }
 
 <body>
@@ -10,10 +10,11 @@
             Swal.fire({
                 icon: "error",
                 title: "No database found!",
-                text: "It seems that journal.sqlite is missing"
+                text: "It seems that journal.sqlite is missing",
+                allowOutsideClick: false,
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.close();
+                    window.parent.close();
                 }
             });
         }
