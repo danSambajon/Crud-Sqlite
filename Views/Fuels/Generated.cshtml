@@ -6,15 +6,15 @@
 
 <div class="text-center">
     <br />
-    <h1 class="display-4">Records List</h1>
-    <hr />
-    <h2 class="display-6">Fuel records:</h2> <h2 class="text-primary">@Model.fuels</h2>    @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br /> *@
+    <h1 class="display-4" style="text-align: left;"><b>Records List</b></h1>
+    <hr /><br />
+    <h2 class="display-6" style="text-align: left;">Fuel records in CSV: <b>@Model.fuels</b></h2>     @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br /> *@
 
     <br />
-    <h2 class="display-6">Lube records: </h2><h2 class="text-danger">@Model.Lubes</h2>     @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br /> *@
+    <h2 class="display-6" style="text-align: left;">Lube records in CSV: <b>@Model.Lubes</b></h2>     @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br /> *@
 
     <br />
-    <h2 class="display-6">Safedrop records:</h2> <h2 class="text-success">@Model.safedrops</h2>     @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br /> *@
+    <h2 class="display-6" style="text-align: left;">Safedrop records in CSV: <b>@Model.safedrops</b></h2>      @* <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br /> *@
     <br />
     <br />
 

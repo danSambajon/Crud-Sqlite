@@ -5,17 +5,12 @@
 }
 
 <div class="text-center">
-    @* <h1 class="display-4">Generate CSV</h1> *@
-
-    @* <button class="btn btn-primary" onclick="timer()"> swal Generate </button> *@
     <br />
-     @* <a asp-controller="Fuels" asp-action="Index" onclick="timer()" class="btn btn-primary" style="width:150px">Generate CSV</a>  *@
 </div>
 
 @Html.Raw(TempData["msg"])
 
 <script>
-    //prompts the question if the POS is closed
     Swal.fire({
         title: "Is the POS closed?",
         text: "it may cause error if POS is open",
@@ -35,6 +30,7 @@
         else {
             window.parent.close();
         }
+        
     });
 
     function generate(){
@@ -46,7 +42,6 @@
             icon: "success",
             title: "Generation Success!",
             showConfirmButton: true,
-            // timer: 1500
         });
     }
 
@@ -55,14 +50,13 @@
             icon: "success",
             title: "Download Success!",
             showConfirmButton: true,
-            // timer: 1500
         });
     }
     
     function timer() {
         let timerInterval;
         Swal.fire({
-            title: "Generating...",
+            title: "Generating CSV...",
             html: "Please do not close the POS",
             timer: 3000,
             allowOutsideClick: false,
