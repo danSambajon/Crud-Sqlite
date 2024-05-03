@@ -69,13 +69,24 @@ namespace Crud_Sqlite.Controllers
             bool isThereJournal = IsThereJournal();
             if (isThereJournal)
             {
+                string sqliteFilePath = "D:\\RealSoft\\RealPOS\\realhq\\journal.sqlite";
+                object siteCode;
+                string siteCodeQuery = $"SELECT xSITECODE FROM xTickets LIMIT 1;";
+                using (var connection = new SqliteConnection($"Data Source={sqliteFilePath};"))
+                {
+                    connection.Open();
+                    using (var command = new SqliteCommand(siteCodeQuery, connection))
+                    {
+                        siteCode = command.ExecuteScalar();
+                    }
+                }
                 RowsCount count = new RowsCount();
                 count.fuels = 0;
                 count.Lubes = 0;
                 count.safedrops = 0;
-                string fuelsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
-                string LubesPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
-                string safedropsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
+                string fuelsPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-fuels-2024.csv";
+                string LubesPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-Lubes-2024.csv";
+                string safedropsPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-safedrops-2024.csv";
                 if (System.IO.File.Exists(fuelsPath))
                 {
                     count.fuels = CountRows(1);
@@ -101,13 +112,24 @@ namespace Crud_Sqlite.Controllers
         [HttpGet]
         public IActionResult Generated()
         {
+            string sqliteFilePath = "D:\\RealSoft\\RealPOS\\realhq\\journal.sqlite";
+            object siteCode;
+            string siteCodeQuery = $"SELECT xSITECODE FROM xTickets LIMIT 1;";
+            using (var connection = new SqliteConnection($"Data Source={sqliteFilePath};"))
+            {
+                connection.Open();
+                using (var command = new SqliteCommand(siteCodeQuery, connection))
+                {
+                    siteCode = command.ExecuteScalar();
+                }
+            }
             RowsCount count = new RowsCount();
             count.fuels = 0;
             count.Lubes = 0;
             count.safedrops = 0;
-            string fuelsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
-            string LubesPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
-            string safedropsPath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
+            string fuelsPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-fuels-2024.csv";
+            string LubesPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-Lubes-2024.csv";
+            string safedropsPath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-safedrops-2024.csv";
             if (System.IO.File.Exists(fuelsPath))
             {
                 count.fuels = CountRows(1);
@@ -197,8 +219,8 @@ namespace Crud_Sqlite.Controllers
                              ORDER BY xTANK,xOID";
                     //sqlPath = Path.Combine(sqlPath, "\\");
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Fuels";
-                    name = "fuel";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq";
+                    name = "fuels";
                     break;
                 //Lubes
                 case 2:
@@ -234,8 +256,8 @@ namespace Crud_Sqlite.Controllers
                             ORDER BY 
                                 INV_DATE";
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Lubes";
-                    name = "Lube";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq";
+                    name = "Lubes";
                     break;
                 //safedrops
                 case 3:
@@ -260,8 +282,8 @@ namespace Crud_Sqlite.Controllers
                              ORDER BY INV_DATE 
                             ";
                     sqliteFilePath = System.IO.Path.Combine(sqlPath, "journal.sqlite");
-                    destPath = "D:\\RealSoft\\RealPOS\\realhq\\Safedrops";
-                    name = "safedrop";
+                    destPath = "D:\\RealSoft\\RealPOS\\realhq";
+                    name = "safedrops";
                     break;
             }
             string siteCodeQuery = $"SELECT xSITECODE FROM xTickets LIMIT 1;";
@@ -340,14 +362,24 @@ namespace Crud_Sqlite.Controllers
 
         public int CountRows(int type)
         {
-            int value = 0;
+            string sqliteFilePath = "D:\\RealSoft\\RealPOS\\realhq\\journal.sqlite";
             object siteCode;
+            string siteCodeQuery = $"SELECT xSITECODE FROM xTickets LIMIT 1;";
+            using (var connection = new SqliteConnection($"Data Source={sqliteFilePath};"))
+            {
+                connection.Open();
+                using (var command = new SqliteCommand(siteCodeQuery, connection))
+                {
+                    siteCode = command.ExecuteScalar();
+                }
+            }
+            int value = 0;
             string filePath = "";
             int rowCount = 0;
             switch (type)
             {
                 case 1:
-                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-fuel-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-fuels-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
@@ -359,7 +391,7 @@ namespace Crud_Sqlite.Controllers
                     ViewBag.FuelsCount = rowCount-1;
                     break;
                 case 2:
-                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-Lube-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-Lubes-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
@@ -371,7 +403,7 @@ namespace Crud_Sqlite.Controllers
                     ViewBag.LubesCount = rowCount-1;
                     break;
                 case 3:
-                    filePath = "D:\\RealSoft\\RealPOS\\realhq\\1166-safedrop-2024.csv";
+                    filePath = $@"D:\RealSoft\RealPOS\realhq\{siteCode}-safedrops-2024.csv";
                     using (var reader = new StreamReader(filePath))
                     {
                         while (!reader.EndOfStream)
