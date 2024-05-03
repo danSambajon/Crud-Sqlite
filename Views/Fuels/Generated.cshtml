@@ -4,19 +4,19 @@
     ViewData["Title"] = "Generated";
 }
 
-<div class="text-center">
+<div style="text-align: left">
     <br />
     <h1 class="display-4" style="text-align: left;"><b>Records List</b></h1>
     <hr /><br />
-    <h2 class="display-6" style="text-align: left;">Fuel records in CSV: <b>@Model.fuels</b></h2>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-sm">Download Fuels</a><br />
+    <h2 class="display-6" style="text-align: left;">Fuel records in CSV: <b>@Model.fuels</b></h2>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 1 })" type="button" class="btn btn-outline-primary btn-lg">Download Fuels</a><br />
 
     <br />
-    <h2 class="display-6" style="text-align: left;">Lube records in CSV: <b>@Model.Lubes</b></h2>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-sm">Download Lubes</a><br />
+    <h2 class="display-6" style="text-align: left;">Lube records in CSV: <b>@Model.Lubes</b></h2>     <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 2 })" type="button" class="btn btn-outline-danger btn-lg">Download Lubes</a><br />
 
     <br />
-    <h2 class="display-6" style="text-align: left;">Safedrop records in CSV: <b>@Model.safedrops</b></h2>      <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-sm">Download Safedrops</a><br />
+    <h2 class="display-6" style="text-align: left;">Safedrop records in CSV: <b>@Model.safedrops</b></h2>      <a onclick="downloaded()" href="@Url.Action("DownloadFile", "Fuels", new { fileNumber = 3 })" type="button" class="btn btn-outline-success btn-lg">Download Safedrops</a><br />
     <br />
     <br />
     <h2 class="display-6" style="text-align: left;">You can close the POS and the app now. Have a nice day! </h2>
-
+    </div> 
     @Html.Raw(TempData["msg"])
