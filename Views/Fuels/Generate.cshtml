@@ -12,13 +12,13 @@
 
 <script>
     Swal.fire({
-        title: "Is the POS closed?",
-        text: "it may cause error if POS is open",
+        title: "Is the POS still open?",
+        text: "generation error may occur if the POS is closed while generating",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, the POS is closed",
+        confirmButtonText: "Yes, the POS is open",
         cancelButtonText: "Not yet",
         allowOutsideClick: false,
     }).then((result) => {
